@@ -24,11 +24,12 @@ class SuperheroService {
   }
 
   async showSuperhero(superheroId) {
-    const superhero = SuperheroModel.findById({ _id: superheroId });
-    if (!superhero) {
-      throw Boom.notFound('No se encontro el superheroe');
-    }
-    return superhero;
+    return SuperheroModel.findById({ _id: superheroId }).then(
+      (superheroFind) => {
+        if (!superheroFind) throw Boom.notFound('No se encontro el superheroe');
+        return superheroFind;
+      }
+    );
   }
 
   async editSuperhero(superheroId, superhero, realname, superpower) {
