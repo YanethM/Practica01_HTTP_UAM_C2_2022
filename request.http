@@ -41,14 +41,14 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/api/v1/superheroes_v2 HTTP/1.1
 ###
-GET http://localhost:5000/api/v1/superheroes_v2/62444de04a003593bd14f8ef HTTP/1.1
+GET http://localhost:5000/api/v1/superheroes_v2/62444e244a003593bd14f8f1 HTTP/1.1
 
 ###
-PUT http://localhost:5000/api/v1/superheroes_v2/62444de04a003593bd14f8ef HTTP/1.1
+PUT http://localhost:5000/api/v1/superheroes_v2/62444e244a003593bd14f8f1 HTTP/1.1
 Content-Type: application/json
 
 {
   "superpower": "Be a bad gay"
 }
 ###
-DELETE http://localhost:5000/api/v1/superheroes_v2/623b1e92591a935032b04cbd HTTP/1.1
+DELETE http://localhost:5000/api/v1/superheroes_v2/62444e244a003593bd14f8f1 HTTP/1.1

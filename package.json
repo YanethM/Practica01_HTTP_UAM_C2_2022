@@ -19,6 +19,7 @@
     "prettier": "^2.6.0"
   },
   "dependencies": {
+    "@hapi/boom": "^9.1.4",
     "dotenv": "^16.0.0",
     "mongoose": "^6.2.6"
   }

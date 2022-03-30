@@ -1,4 +1,5 @@
 const express = require('express');
+const Boom = require('@hapi/boom');
 const SuperheroService = require('../services/superhero_v2.service');
 const superheroModel = require('../models/superhero_v2.model');
 const superheroV2Router = express.Router();
@@ -22,43 +23,48 @@ superheroV2Router.post('/superhero', async (req, res) => {
   }
 });
 
-superheroV2Router.get('/', async (req, res) => {
+superheroV2Router.get('/', async (req, res, next) => {
   try {
-    const data = await service.listSuperheroes();
+    const data = await service.find();
     res.status(200).json(data);
   } catch (error) {
-    res.status(404).json({ message: error });
+    next(error);
   }
 });
 
-superheroV2Router.get('/:superheroId', async (req, res) => {
+superheroV2Router.get('/:superheroId', async (req, res, next) => {
   try {
     const { superheroId } = req.params;
     const data = await service.showSuperhero(superheroId);
     res.status(302).json(data);
   } catch (error) {
-    res.status(404).json({ message: error });
+    next(error);
   }
 });
 
-superheroV2Router.put('/:superheroId', async (req, res) => {
+superheroV2Router.put('/:superheroId', async (req, res, next) => {
   try {
     const { superheroId } = req.params;
     const { superhero, realname, superpower } = req.body;
-    const data = await service.editSuperhero(superheroId, superhero, realname, superpower);
+    const data = await service.editSuperhero(
+      superheroId,
+      superhero,
+      realname,
+      superpower
+    );
     res.status(200).json(data);
   } catch (error) {
-    res.status(304).json({ message: error });
+    next(error);
   }
 });
 
-superheroV2Router.delete('/:superheroId', async (req, res) => {
+superheroV2Router.delete('/:superheroId', async (req, res, next) => {
   try {
     const { superheroId } = req.params;
     const data = await service.removeSuperhero(superheroId);
     res.status(200).json(data);
   } catch (error) {
-    res.status(404).json({ message: error });
+    next(error);
   }
 });
 
