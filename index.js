@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const { logErrors, errorHandler,boomErrorHandler} = require('./src/handlers/errors.handler');
 const app = express();
 const routerApi = require('./src/routes');
 require('dotenv').config();
@@ -12,7 +13,10 @@ mongoose
   .then(() => console.log('Success connection with mongo'))
   .catch((error) => console.error(error));
 
-/* Respuestas a solicitudes http en formato JSON */
 app.use(express.json());
-/* Permitir hacer el llamado de los request */
+app.use(logErrors)
+app.use(errorHandler)
+app.use(boomErrorHandler)
+
 routerApi(app);
+
