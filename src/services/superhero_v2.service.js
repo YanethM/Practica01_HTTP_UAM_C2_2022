@@ -14,7 +14,7 @@ class SuperheroService {
     return SuperheroModel.find();
   }
 
-  /* Función que nos devuelve una promeda */
+  /* Función que nos devuelve una promesa */
   find() {
     return new Promise((resolve) => {
       setTimeout(() => {

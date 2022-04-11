@@ -34,14 +34,14 @@ POST http://localhost:5000/api/v1/superheroes_v2/superhero HTTP/1.1
 Content-Type: application/json
 
 {
-  "superhero":"Shrek",
-  "realname": "Alejandro",
+  "superhero":"Superhero UC",
+  "realname": "UC",
   "superpower": "Be green"
 }
 ###
 GET http://localhost:5000/api/v1/superheroes_v2 HTTP/1.1
 ###
-GET http://localhost:5000/api/v1/superheroes_v2/62444e244a003593bd14f8f1 HTTP/1.1
+GET http://localhost:5000/api/v1/superheroes_v2/62444e244a003593bd14f8f8 HTTP/1.1
 
 ###
 PUT http://localhost:5000/api/v1/superheroes_v2/62444e244a003593bd14f8f1 HTTP/1.1
